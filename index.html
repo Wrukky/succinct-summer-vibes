@@ -14,7 +14,7 @@
       background-repeat: repeat;
       background-position: 0 0;
       animation: moveBackground 60s linear infinite;
-      color: rgb(255, 0, 200); /* Brighter pink text */
+      color: rgb(255, 0, 200);
     }
 
     @keyframes moveBackground {
@@ -33,7 +33,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.2); /* Brighter overlay */
+      background: rgba(0, 0, 0, 0.2);
       z-index: 0;
       pointer-events: none;
     }
@@ -49,7 +49,7 @@
       font-size: 3em;
       margin-bottom: 20px;
       color: white;
-      text-shadow: 0 0 8px #ff00cc, 0 0 12px #ff99ff; /* Glow effect */
+      text-shadow: 0 0 8px #ff00cc, 0 0 12px #ff99ff;
     }
 
     input,
@@ -71,7 +71,7 @@
       background-color: #ff00aa;
       color: white;
       cursor: pointer;
-      box-shadow: 0 0 10px #ff00cc; /* Glow for button */
+      box-shadow: 0 0 10px #ff00cc;
     }
 
     button:hover {
@@ -127,56 +127,56 @@
 
   <script>
     const tweetTemplates = [
-      name => `${name} is building zk sandcastles with Succinct 🏖️ #Succinctsummer https://succinct-summer-vibes.vercel.app/`,
-      name => `Hot chain, cool proofs 🔥❄️ Powered by Succinct. Signed, ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `${name} prefers zk rollups over beach towels this summer 🏖️ #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `Verified tan. Verified vibes. Verified by Succinct 😎 – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `${name}'s rollup strategy? Chill hard, prove harder. #ZKSummer #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `All in on zk... and SPF 50. Stay safe – ${name} 🌞 #Succinctsummer https://succinct-summer-vibes.vercel.app/`,
-      name => `${name} has proof-of-vibes running on mainnet 🧘 #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `Proofs faster than sunscreen melts. Thanks Succinct 💨🔥 – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `This summer, ${name} trusts Succinct more than sunglasses 😎 #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `zk chillin’ with Succinct and zero-knowledge of deadlines – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `${name} just verified their whole summer with one proof 📜 #Succinctsummer https://succinct-summer-vibes.vercel.app/`,
-      name => `The only thing hotter than July? Succinct’s zkVM 🧠🔥 – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `zk proofs > beach parties. At least for ${name} 🛕 #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `${name} is recursion-deep in relaxation 💆‍♂️ #ZKSummer#SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `Sunburned but trustless ☀️🔐 – ${name} x Succinct #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `This tweet was verified using Succinct's zkVM. So was ${name}’s tan.#SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `Running proofs and running late to the beach 🏃‍♀️ #Succinct – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `Succinct summer goals: tan, chill, and validate everything. Signed: ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `zk BBQs and SNARKy jokes with Succinct 🔥🍗 – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `Real beach body is a verified SNARK circuit – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `Sun, zk, and Succinct: the only three things I trust 🕶️ – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `Succinct has no bugs. Only deeply chill vibes. 😎 – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `This summer, ${name} is vibing harder than recursive proofs 🧬 #Succinctsummer https://succinct-summer-vibes.vercel.app/`,
-      name => `${name} entered the summer fully trusted and exited with proofs 💅 #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `ZK or bust – ${name} is relaxing at 0 gas cost 🧘‍♀️ #Succinctsummer https://succinct-summer-vibes.vercel.app/`,
-      name => `Succinct: more satisfying than a cold drink on a hot L2 🥤 – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `${name} is 100% off-chain verified and 0% worried 😌 #ZKSummer #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `I came. I zk'd. I chilled. ${name} out. #Succinctsummer https://succinct-summer-vibes.vercel.app/`,
-      name => `${name} rolled up and proved it — in flip-flops 👣 #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `Sun's out, SNARKs out 🔆 #ZKSummer – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `zkVM in the front, beach party in the back 🍍 – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `${name} left the trust assumptions at home this summer 🔒 #Succinctsummer https://succinct-summer-vibes.vercel.app/`,
-      name => `Who needs SPF when you're wrapped in zero-knowledge? ☀️ – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
+      name => `${name} is building zk sandcastles with Succinct 🏖️ #Succinctsummer`,
+      name => `Hot chain, cool proofs 🔥❄️ Powered by Succinct. Signed, ${name} #SuccinctSummer`,
+      name => `${name} prefers zk rollups over beach towels this summer 🏖️ #SuccinctSummer`,
+      name => `Verified tan. Verified vibes. Verified by Succinct 😎 – ${name} #SuccinctSummer`,
+      name => `${name}'s rollup strategy? Chill hard, prove harder. #ZKSummer #SuccinctSummer`,
+      name => `All in on zk... and SPF 50. Stay safe – ${name} 🌞 #Succinctsummer`,
+      name => `${name} has proof-of-vibes running on mainnet 🧘 #SuccinctSummer`,
+      name => `Proofs faster than sunscreen melts. Thanks Succinct 💨🔥 – ${name} #SuccinctSummer`,
+      name => `This summer, ${name} trusts Succinct more than sunglasses 😎 #SuccinctSummer`,
+      name => `zk chillin’ with Succinct and zero-knowledge of deadlines – ${name} #SuccinctSummer`,
+      name => `${name} just verified their whole summer with one proof 📜 #Succinctsummer`,
+      name => `The only thing hotter than July? Succinct’s zkVM 🧠🔥 – ${name} #SuccinctSummer`,
+      name => `zk proofs > beach parties. At least for ${name} 🛕 #SuccinctSummer`,
+      name => `${name} is recursion-deep in relaxation 💆‍♂️ #ZKSummer#SuccinctSummer`,
+      name => `Sunburned but trustless ☀️🔐 – ${name} x Succinct #SuccinctSummer`,
+      name => `This tweet was verified using Succinct's zkVM. So was ${name}’s tan.#SuccinctSummer`,
+      name => `Running proofs and running late to the beach 🏃‍♀️ #Succinct – ${name} #SuccinctSummer`,
+      name => `Succinct summer goals: tan, chill, and validate everything. Signed: ${name} #SuccinctSummer`,
+      name => `zk BBQs and SNARKy jokes with Succinct 🔥🍗 – ${name} #SuccinctSummer`,
+      name => `Real beach body is a verified SNARK circuit – ${name} #SuccinctSummer`,
+      name => `Sun, zk, and Succinct: the only three things I trust 🕶️ – ${name} #SuccinctSummer`,
+      name => `Succinct has no bugs. Only deeply chill vibes. 😎 – ${name} #SuccinctSummer`,
+      name => `This summer, ${name} is vibing harder than recursive proofs 🧬 #Succinctsummer`,
+      name => `${name} entered the summer fully trusted and exited with proofs 💅 #SuccinctSummer`,
+      name => `ZK or bust – ${name} is relaxing at 0 gas cost 🧘‍♀️ #Succinctsummer`,
+      name => `Succinct: more satisfying than a cold drink on a hot L2 🥤 – ${name} #SuccinctSummer`,
+      name => `${name} is 100% off-chain verified and 0% worried 😌 #ZKSummer #SuccinctSummer`,
+      name => `I came. I zk'd. I chilled. ${name} out. #Succinctsummer`,
+      name => `${name} rolled up and proved it — in flip-flops 👣 #SuccinctSummer`,
+      name => `Sun's out, SNARKs out 🔆 #ZKSummer – ${name} #SuccinctSummer`,
+      name => `zkVM in the front, beach party in the back 🍍 – ${name} #SuccinctSummer`,
+      name => `${name} left the trust assumptions at home this summer 🔒 #Succinctsummer`,
+      name => `Who needs SPF when you're wrapped in zero-knowledge? ☀️ – ${name} #SuccinctSummer`,
       name => `zk is the only tan line I need – ${name} #SuccinctSummer`,
-      name => `Just me and my proofs by the pool 🏊‍♂️ #Succinct – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
+      name => `Just me and my proofs by the pool 🏊‍♂️ #Succinct – ${name} #SuccinctSummer`,
       name => `${name}'s summer is SNARK-certified 🧾🔥 #SuccinctSummer`,
-      name => `Recursive chill mode activated by Succinct 🌊 – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `My weekend plans? zk rollups and iced tea 🍹 – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
+      name => `Recursive chill mode activated by Succinct 🌊 – ${name} #SuccinctSummer`,
+      name => `My weekend plans? zk rollups and iced tea 🍹 – ${name} #SuccinctSummer`,
       name => `No zk drama, just zk summer 😌☀️ – ${name} #SuccinctSummer`,
-      name => `zk so strong it filtered out the sun ☀️💻 – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `${name} runs on Succinct and sunshine 🌞 #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `L1 tan, L2 energy, zk mindset – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `Feeling more secure than a zero-knowledge proof 🔐 – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `Proofs before popsicles. Always. 🍧 – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `Can I verify my summer vacation on-chain? Yes, with Succinct – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `${name} verified their fun using zero trust. #Succinctsummer https://succinct-summer-vibes.vercel.app/`,
-      name => `zkVM > AC. Keeps me cool all summer 😎 – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `The only thing that’s not transparent? My zk proofs 🔍 – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `I left my worries at the L1 and proofed out 🌴 – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`,
-      name => `Succinct's zkVM is the only thing keeping my brain cool 🧠❄️ – ${name} #SuccinctSummer https://succinct-summer-vibes.vercel.app/`
+      name => `zk so strong it filtered out the sun ☀️💻 – ${name} #SuccinctSummer`,
+      name => `${name} runs on Succinct and sunshine 🌞 #SuccinctSummer`,
+      name => `L1 tan, L2 energy, zk mindset – ${name} #SuccinctSummer`,
+      name => `Feeling more secure than a zero-knowledge proof 🔐 – ${name} #SuccinctSummer`,
+      name => `Proofs before popsicles. Always. 🍧 – ${name} #SuccinctSummer`,
+      name => `Can I verify my summer vacation on-chain? Yes, with Succinct – ${name} #SuccinctSummer`,
+      name => `${name} verified their fun using zero trust. #Succinctsummer`,
+      name => `zkVM > AC. Keeps me cool all summer 😎 – ${name} #SuccinctSummer`,
+      name => `The only thing that’s not transparent? My zk proofs 🔍 – ${name} #SuccinctSummer`,
+      name => `I left my worries at the L1 and proofed out 🌴 – ${name} #SuccinctSummer`,
+      name => `Succinct's zkVM is the only thing keeping my brain cool 🧠❄️ – ${name} #SuccinctSummer`
     ];
 
     function generateCard() {
@@ -184,7 +184,13 @@
       if (!name) return;
 
       const randomTemplate = tweetTemplates[Math.floor(Math.random() * tweetTemplates.length)];
-      const tweetText = randomTemplate(name);
+      let tweetText = randomTemplate(name);
+
+      const link = " try: https://succinct-summer-vibes.vercel.app made by @wru_kii";
+      if (!tweetText.includes(link)) {
+        tweetText += ` ${link}`;
+      }
+
       const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
 
       document.getElementById("cardText").textContent = tweetText;
