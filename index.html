@@ -19,12 +19,8 @@
     }
 
     @keyframes moveBackground {
-      from {
-        background-position: 0 0;
-      }
-      to {
-        background-position: 1000px 1000px;
-      }
+      from { background-position: 0 0; }
+      to { background-position: 1000px 1000px; }
     }
 
     body::before {
@@ -92,25 +88,26 @@
       padding: 0 20px;
       max-width: 600px;
     }
-#music-controls {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 8px;
-  border-radius: 10px;
-  z-index: 1000;
-}
 
-#music-controls button {
-  margin: 0 4px;
-  padding: 6px 10px;
-  background: #ff00cc;
-  border: none;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
+    #music-controls {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 8px;
+      border-radius: 10px;
+      z-index: 1000;
+    }
+
+    #music-controls button {
+      margin: 0 4px;
+      padding: 6px 10px;
+      background: #ff00cc;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
     a.share-link {
       display: inline-block;
@@ -132,24 +129,29 @@
 
   <div class="content">
     <h1>Succinct Summer Vibes ☀️</h1>
-<audio id="bg-music" src="succinct summer mp3.mp3" loop></audio>
-<div id="music-controls">
-  <button onclick="playMusic()">▶ Play Music</button>
-  <button onclick="toggleMusic()">🔇 Mute</button>
-</div>
 
+    <!-- Audio + Controls -->
+    <audio id="bg-music" src="succinct summer mp3.mp3" loop></audio>
+    <div id="music-controls">
+      <button onclick="playMusic()">▶ Play Music</button>
+      <button onclick="toggleMusic()">🔇 Mute</button>
+    </div>
+
+    <!-- Form -->
     <div id="form-container">
       <input id="nameInput" type="text" placeholder="Enter your name" />
       <br />
       <button onclick="generateCard()">Generate My Tweet</button>
     </div>
 
+    <!-- Result Card -->
     <div id="card" class="card" style="display: none;">
       <p id="cardText" style="font-size: 1.2rem; font-weight: bold;"></p>
       <a id="tweetLink" class="share-link" target="_blank">Share on Twitter 🐦</a>
     </div>
   </div>
 
+  <!-- Script -->
   <script>
     const tweetTemplates = [
       name => `${name} is building zk sandcastles with Succinct 🏖️ #Succinctsummer`,
@@ -203,22 +205,24 @@
       name => `I left my worries at the L1 and proofed out 🌴 – ${name} #SuccinctSummer`,
       name => `Succinct's zkVM is the only thing keeping my brain cool 🧠❄️ – ${name} #SuccinctSummer`
     ];
-let isMuted = false;
 
-function playMusic() {
-  const music = document.getElementById("bg-music");
-  music.volume = 0.5; // Adjust volume if needed
-  music.play();
-}
+    let isMuted = false;
 
-function toggleMusic() {
-  const music = document.getElementById("bg-music");
-  isMuted = !isMuted;
-  music.muted = isMuted;
-}
+    function playMusic() {
+      const music = document.getElementById("bg-music");
+      music.volume = 0.5;
+      music.play().catch(() => {}); // In case autoplay is blocked
+    }
 
+    function toggleMusic() {
+      const music = document.getElementById("bg-music");
+      isMuted = !isMuted;
+      music.muted = isMuted;
+    }
 
     function generateCard() {
+      playMusic(); // Automatically start music after button click
+
       const name = document.getElementById("nameInput").value.trim();
       if (!name) return;
 
@@ -237,8 +241,8 @@ function toggleMusic() {
       document.getElementById("card").style.display = "block";
     }
   </script>
-
 </body>
 </html>
+
 
 
