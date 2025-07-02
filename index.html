@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Succinct Summer Vibes</title>
+  <a href="https://twitter.com/wru_kii" target="_blank">🐦 @wru_kii</a>
   <style>
     body {
       margin: 0;
@@ -16,7 +17,7 @@
       animation: moveBackground 60s linear infinite;
       color: rgb(255, 0, 200);
     }
-    
+
     @keyframes moveBackground {
       from {
         background-position: 0 0;
@@ -91,6 +92,25 @@
       padding: 0 20px;
       max-width: 600px;
     }
+#music-controls {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 8px;
+  border-radius: 10px;
+  z-index: 1000;
+}
+
+#music-controls button {
+  margin: 0 4px;
+  padding: 6px 10px;
+  background: #ff00cc;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
     a.share-link {
       display: inline-block;
@@ -112,6 +132,11 @@
 
   <div class="content">
     <h1>Succinct Summer Vibes ☀️</h1>
+<audio id="bg-music" src="succinct summer mp3.mp3" loop></audio>
+<div id="music-controls">
+  <button onclick="playMusic()">▶ Play Music</button>
+  <button onclick="toggleMusic()">🔇 Mute</button>
+</div>
 
     <div id="form-container">
       <input id="nameInput" type="text" placeholder="Enter your name" />
@@ -124,7 +149,7 @@
       <a id="tweetLink" class="share-link" target="_blank">Share on Twitter 🐦</a>
     </div>
   </div>
-<a href="https://twitter.com/wru_kii" target="_blank">🐦 @wru_kii</a>
+
   <script>
     const tweetTemplates = [
       name => `${name} is building zk sandcastles with Succinct 🏖️ #Succinctsummer`,
@@ -178,6 +203,20 @@
       name => `I left my worries at the L1 and proofed out 🌴 – ${name} #SuccinctSummer`,
       name => `Succinct's zkVM is the only thing keeping my brain cool 🧠❄️ – ${name} #SuccinctSummer`
     ];
+let isMuted = false;
+
+function playMusic() {
+  const music = document.getElementById("bg-music");
+  music.volume = 0.5; // Adjust volume if needed
+  music.play();
+}
+
+function toggleMusic() {
+  const music = document.getElementById("bg-music");
+  isMuted = !isMuted;
+  music.muted = isMuted;
+}
+
 
     function generateCard() {
       const name = document.getElementById("nameInput").value.trim();
@@ -201,4 +240,5 @@
 
 </body>
 </html>
+
 
