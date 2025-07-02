@@ -19,8 +19,12 @@
     }
 
     @keyframes moveBackground {
-      from { background-position: 0 0; }
-      to { background-position: 1000px 1000px; }
+      from {
+        background-position: 0 0;
+      }
+      to {
+        background-position: 1000px 1000px;
+      }
     }
 
     body::before {
@@ -130,28 +134,25 @@
   <div class="content">
     <h1>Succinct Summer Vibes ☀️</h1>
 
-    <!-- Audio + Controls -->
     <audio id="bg-music" src="succinct summer mp3.mp3" loop></audio>
+
     <div id="music-controls">
       <button onclick="playMusic()">▶ Play Music</button>
       <button onclick="toggleMusic()">🔇 Mute</button>
     </div>
 
-    <!-- Form -->
     <div id="form-container">
       <input id="nameInput" type="text" placeholder="Enter your name" />
       <br />
       <button onclick="generateCard()">Generate My Tweet</button>
     </div>
 
-    <!-- Result Card -->
     <div id="card" class="card" style="display: none;">
       <p id="cardText" style="font-size: 1.2rem; font-weight: bold;"></p>
       <a id="tweetLink" class="share-link" target="_blank">Share on Twitter 🐦</a>
     </div>
   </div>
 
-  <!-- Script -->
   <script>
     const tweetTemplates = [
       name => `${name} is building zk sandcastles with Succinct 🏖️ #Succinctsummer`,
@@ -211,7 +212,10 @@
     function playMusic() {
       const music = document.getElementById("bg-music");
       music.volume = 0.5;
-      music.play().catch(() => {}); // In case autoplay is blocked
+      music.play().catch((e) => {
+        alert("Autoplay blocked. Please click to start music.");
+        console.error("Autoplay failed:", e);
+      });
     }
 
     function toggleMusic() {
@@ -221,8 +225,6 @@
     }
 
     function generateCard() {
-      playMusic(); // Automatically start music after button click
-
       const name = document.getElementById("nameInput").value.trim();
       if (!name) return;
 
@@ -241,8 +243,10 @@
       document.getElementById("card").style.display = "block";
     }
   </script>
+
 </body>
 </html>
+
 
 
 
